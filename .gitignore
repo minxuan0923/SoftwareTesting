@@ -1,0 +1,55 @@
+# =========================================================================
+# Java / Compiled Binaries
+# =========================================================================
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+
+# =========================================================================
+# Eclipse IDE Specific
+# =========================================================================
+# Exclude the local build outputs and temporary states
+bin/
+/bin/
+tmp/
+.metadata/
+.recommenders/
+.factorypath
+.loadpath
+
+# Exclude local settings (keeps preferences and workspace views private)
+.settings/
+
+# Exclude external tool builders and launch configs
+.externalToolBuilders/
+*.launch
+
+# Optional: Uncomment if you use Maven/Gradle to manage paths instead of Eclipse
+# .classpath
+# .project
+
+# =========================================================================
+# Build Automation Tools (Keep what applies to your project)
+# =========================================================================
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+# Gradle
+.gradle/
+build/
+
+# =========================================================================
+# Operating System Files
+# =========================================================================
+.DS_Store
+Thumbs.db
