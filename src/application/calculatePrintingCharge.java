@@ -16,14 +16,6 @@ public class calculatePrintingCharge {
             return -1.0; // Terminate calculation with an error value
         }
 
-        // 2. Business Rules Validation (at least 1 page & 1 copy, max 500 pages, max 1000 copies)
-        if (order.getNumberOfPages() < 1 || order.getNumberOfPages() > 500) {
-            throw new IllegalArgumentException("Pages must be between 1 and 500.");
-        }
-        if (order.getNumberOfCopies() < 1 || order.getNumberOfCopies() > 1000) {
-            throw new IllegalArgumentException("Copies must be between 1 and 1000.");
-        }
-
         // 3. Base Printing Charge Calculation (Table 2)
         double rate = getBaseRate(order.getPaperSize(), order.getPrintType(), order.getPrintingSide());
         double baseCharge = rate * order.getNumberOfPages() * order.getNumberOfCopies();
@@ -66,25 +58,27 @@ public class calculatePrintingCharge {
     }
 
     private double getBaseRate(String paperSize, String printType, String printingSide) {
-        if ("A4".equalsIgnoreCase(paperSize)) {
-            if ("Black & White".equalsIgnoreCase(printType)) {
-                return "Single-sided".equalsIgnoreCase(printingSide) ? 0.20 : 0.18;
-            } else if ("Colour".equalsIgnoreCase(printType)) {
-                return "Single-sided".equalsIgnoreCase(printingSide) ? 0.80 : 0.75;
+        boolean singleSided = "Single-sided".equals(printingSide);
+ 
+        if ("A4".equals(paperSize)) {
+            if ("Black & White".equals(printType)) {
+                return singleSided ? 0.20 : 0.18;
+            } else {
+                return singleSided ? 0.80 : 0.75;
             }
-        } else if ("A3".equalsIgnoreCase(paperSize)) {
-            if ("Black & White".equalsIgnoreCase(printType)) {
-                return "Single-sided".equalsIgnoreCase(printingSide) ? 0.40 : 0.35;
-            } else if ("Colour".equalsIgnoreCase(printType)) {
-                return "Single-sided".equalsIgnoreCase(printingSide) ? 1.50 : 1.40;
+        } else if ("A3".equals(paperSize)) {
+            if ("Black & White".equals(printType)) {
+                return singleSided ? 0.40 : 0.35;
+            } else {
+                return singleSided ? 1.50 : 1.40;
             }
-        } else if ("A5".equalsIgnoreCase(paperSize)) {
-            if ("Black & White".equalsIgnoreCase(printType)) {
-                return "Single-sided".equalsIgnoreCase(printingSide) ? 0.15 : 0.13;
-            } else if ("Colour".equalsIgnoreCase(printType)) {
-                return "Single-sided".equalsIgnoreCase(printingSide) ? 0.60 : 0.55;
+        } else {
+            // paperSize == "A5"
+            if ("Black & White".equals(printType)) {
+                return singleSided ? 0.15 : 0.13;
+            } else {
+                return singleSided ? 0.60 : 0.55;
             }
         }
-        throw new IllegalArgumentException("Invalid combination of paper size, print type, or printing side");
     }
 }
