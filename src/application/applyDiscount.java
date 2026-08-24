@@ -2,6 +2,16 @@ package application;
 
 public class applyDiscount {
     public double calculateDiscount(customer cust, double subtotal) {
+    	if(cust==null) {
+    		throw new IllegalArgumentException("Customer type cannot be null.");
+    	}
+    	if(subtotal<=0) {
+    		throw new IllegalArgumentException("Subtotal cannot be smaller or euqal to 0.");
+    	}
+    	if(cust.getPreviousOrders()<0) {
+    		throw new IllegalArgumentException("Previous orders cannot be negative.");
+    	}
+    	
         double discountAmount = 0.0;
         double currentSubtotal = subtotal;
 
