@@ -16,12 +16,12 @@ public class customer {
     public customer() {}
 
     public customer(String customerID, String name, String email, String phone, String customerType, int previousOrders) {
-        this.customerID = customerID;
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.customerType = customerType;
-        this.previousOrders = previousOrders;
+    	 setCustomerID(customerID);
+    	 setName(name);
+    	 setEmail(email);
+    	 setPhone(phone);
+    	 setCustomerType(customerType);
+    	 setPreviousOrders(previousOrders);
     }
 
     // Static helper to retrieve details from readCustomer
