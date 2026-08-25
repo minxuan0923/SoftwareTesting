@@ -6,6 +6,11 @@ import java.io.IOException;
 
 public class readCustomer {
     public customer getCustomerByID(String customerID) {
+    	
+    	if (customerID == null || customerID.trim().isEmpty()) {
+    	    throw new IllegalArgumentException("Customer ID cannot be null or empty.");
+    	}
+    	
         try (BufferedReader reader = new BufferedReader(new FileReader("customer.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {

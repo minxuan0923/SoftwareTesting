@@ -23,20 +23,19 @@ public class printOrder {
     public printOrder(customer customerDetails, String printType, String paperSize, String printingSide,
                       int numberOfPages, int numberOfCopies, String bindingOption,
                       boolean laminationOption, boolean expressPrintingOption) {
-        this.customerDetails = customerDetails;
-        this.printType = printType;
-        this.paperSize = paperSize;
-        this.printingSide = printingSide;
-        this.numberOfPages = numberOfPages;
-        this.numberOfCopies = numberOfCopies;
-        this.bindingOption = bindingOption;
-        this.laminationOption = laminationOption;
-        this.expressPrintingOption = expressPrintingOption;
+        setCustomer(customerDetails);
+        setPrintType(printType);
+        setPaperSize(paperSize);
+        setPrintingSide(printingSide);
+        setNumberOfPages(numberOfPages);
+        setNumberOfCopies(numberOfCopies);
+        setBindingOption(bindingOption);
+        setLaminationOption(laminationOption);
+        setExpressPrintingOption(expressPrintingOption);
         this.orderStatus = "Pending";
         this.paymentStatus = "Unpaid";
     }
 
-    // Getters and Setters
     // Getters and Setters
     public customer getCustomer() { return customerDetails; }
     public void setCustomer(customer customerDetails) { 
