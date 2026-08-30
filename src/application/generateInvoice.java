@@ -2,6 +2,9 @@ package application;
 
 public class generateInvoice {
     public String generate(printOrder order) {
+    	if(order==null) {
+    		throw new IllegalArgumentException();
+    	}
         customer cust = order.getCustomer();
         StringBuilder sb = new StringBuilder();
         sb.append("=================== INVOICE ===================\n");
