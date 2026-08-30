@@ -140,7 +140,7 @@ public class printOrder {
     public double getTotalPrintingCharge() { return totalPrintingCharge; }
     public void setTotalPrintingCharge(double totalPrintingCharge) { 
     	if (totalPrintingCharge <=0) {
-            throw new IllegalArgumentException("Total Printing CHarge must be larger than 0.");
+            throw new IllegalArgumentException("Total Printing Charge must be larger than 0.");
         }
     	this.totalPrintingCharge = totalPrintingCharge; 
     	}

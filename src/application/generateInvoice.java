@@ -3,9 +3,26 @@ package application;
 public class generateInvoice {
     public String generate(printOrder order) {
     	if(order==null) {
-    		throw new IllegalArgumentException();
+    		throw new IllegalArgumentException("Invalid print order: order cannot be null.");
     	}
         customer cust = order.getCustomer();
+
+        if(cust == null) {
+            throw new IllegalArgumentException("Invalid print order: customer cannot be null.");
+        } else if (order.getOrderStatus() == null) {
+            throw new IllegalArgumentException("Invalid print order: order status cannot be null.");
+        } else if (order.getPaperSize() == null ) {
+            throw new IllegalArgumentException("Invalid print order: paper size cannot be null.");
+        } else if (order.getPrintType() == null) {
+            throw new IllegalArgumentException("Invalid print order: print type cannot be null.");
+        } else if (order.getPaymentStatus() == null) {
+            throw new IllegalArgumentException("Invalid print order: payment status cannot be null.");
+        } else if (order.getPrintingSide() == null) {
+            throw new IllegalArgumentException("Invalid print order: printing side cannot be null.");
+        } else if (order.getBindingOption() == null) {
+            throw new IllegalArgumentException("Invalid print order: binding option cannot be null.");
+        }
+
         StringBuilder sb = new StringBuilder();
         sb.append("=================== INVOICE ===================\n");
         sb.append("Customer ID: ").append(cust.getCustomerID()).append("\n");
