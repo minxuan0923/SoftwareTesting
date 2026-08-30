@@ -1,0 +1,2 @@
+C1,Ben,ben@gmail.com,0123456789,Regular,5
+C2,Jane,jane@gmail.com,0181233456, Student,6

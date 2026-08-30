@@ -6,7 +6,7 @@ public class applyDiscount {
     		throw new IllegalArgumentException("Customer type cannot be null.");
     	}
     	if(subtotal<=0) {
-    		throw new IllegalArgumentException("Subtotal cannot be smaller or euqal to 0.");
+    		throw new IllegalArgumentException("Subtotal cannot be smaller or equal to 0.");
     	}
     	if(cust.getPreviousOrders()<0) {
     		throw new IllegalArgumentException("Previous orders cannot be negative.");

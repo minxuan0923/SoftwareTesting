@@ -18,7 +18,7 @@ public class calculatePrintingCharge {
 
         // 3. Base Printing Charge Calculation (Table 2)
         double rate = getBaseRate(order.getPaperSize(), order.getPrintType(), order.getPrintingSide());
-        double baseCharge = rate * order.getNumberOfPages() * order.getNumberOfCopies();
+        double baseCharge = rate * order.getNumberOfPages() * order.getNumberOfCopies(); 
         order.setBasePrintingCharge(baseCharge);
 
         // 4. Optional Service Charges Calculation (Table 3)
