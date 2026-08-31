@@ -2,10 +2,14 @@ package application;
 
 public class generateInvoice {
     public String generate(printOrder order) {
-    	if(order==null) {
-    		throw new IllegalArgumentException();
-    	}
+        if (order == null) {
+            throw new IllegalArgumentException("Invalid print order: order cannot be null.");
+        } else if (!"Completed".equals(order.getOrderStatus())) {
+            throw new IllegalArgumentException("Invalid print order: order status must be 'Completed' to generate invoice.");
+        } 
+
         customer cust = order.getCustomer();
+
         StringBuilder sb = new StringBuilder();
         sb.append("=================== INVOICE ===================\n");
         sb.append("Customer ID: ").append(cust.getCustomerID()).append("\n");

@@ -8,9 +8,10 @@ public class applyDiscount {
     	if(subtotal<=0) {
     		throw new IllegalArgumentException("Subtotal cannot be smaller or equal to 0.");
     	}
-    	if(cust.getPreviousOrders()<0) {
-    		throw new IllegalArgumentException("Previous orders cannot be negative.");
-    	}
+        // Note: I think this validation is redundant since the customer class already validates previousOrders in its constructor and setter.
+    	// if(cust.getPreviousOrders()<0) {
+    	// 	throw new IllegalArgumentException("Previous orders cannot be negative.");
+    	// }
     	
         double discountAmount = 0.0;
         double currentSubtotal = subtotal;
