@@ -4,41 +4,11 @@ public class generateInvoice {
     public String generate(printOrder order) {
         if (order == null) {
             throw new IllegalArgumentException("Invalid print order: order cannot be null.");
-        }
-        customer cust = order.getCustomer();
-
-        // Check if order status valid (not null and is 'Completed')
-        if (order.getOrderStatus() == null) {
-            throw new IllegalArgumentException("Invalid print order: order status cannot be null.");
-        } else if (order.getOrderStatus() != "Completed") {
+        } else if (!"Completed".equals(order.getOrderStatus())) {
             throw new IllegalArgumentException("Invalid print order: order status must be 'Completed' to generate invoice.");
         } 
-        // Check if customer details are valid (not null and all fields not null)
-        else if (cust == null) {
-            throw new IllegalArgumentException("Invalid print order: customer cannot be null.");
-        } else if (cust.getCustomerID() == null) {
-            throw new IllegalArgumentException("Invalid print order: customer ID cannot be null.");
-        } else if (cust.getName() == null) {
-            throw new IllegalArgumentException("Invalid print order: customer name cannot be null.");
-        } else if (cust.getEmail() == null) {
-            throw new IllegalArgumentException("Invalid print order: customer email cannot be null.");
-        } else if (cust.getPhone() == null) {
-            throw new IllegalArgumentException("Invalid print order: customer phone cannot be null.");
-        } else if (cust.getCustomerType() == null) {
-            throw new IllegalArgumentException("Invalid print order: customer type cannot be null.");
-        } 
-        // Check if order String variables are not null
-        else if (order.getPaperSize() == null) {
-            throw new IllegalArgumentException("Invalid print order: paper size cannot be null.");
-        } else if (order.getPrintType() == null) {
-            throw new IllegalArgumentException("Invalid print order: print type cannot be null.");
-        } else if (order.getPaymentStatus() == null) {
-            throw new IllegalArgumentException("Invalid print order: payment status cannot be null.");
-        } else if (order.getPrintingSide() == null) {
-            throw new IllegalArgumentException("Invalid print order: printing side cannot be null.");
-        } else if (order.getBindingOption() == null) {
-            throw new IllegalArgumentException("Invalid print order: binding option cannot be null.");
-        }
+
+        customer cust = order.getCustomer();
 
         StringBuilder sb = new StringBuilder();
         sb.append("=================== INVOICE ===================\n");

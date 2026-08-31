@@ -5,6 +5,10 @@ import java.io.IOException;
 
 public class addNewCustomer {
     public void addCustomer(customer cust) {
+        if (cust == null) {
+            throw new IllegalArgumentException("Customer object cannot be null.");
+        }
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("customer.txt", true))) {
             writer.write(cust.getCustomerID() + "," +
                          cust.getName() + "," +
