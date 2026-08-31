@@ -18,8 +18,6 @@ public class printOrder {
     private String orderStatus;        // e.g., "Pending", "Completed", "Pending Payment"
     private String paymentStatus;      // e.g., "Unpaid", "Paid"
 
-    public printOrder() {}
-
     public printOrder(customer customerDetails, String printType, String paperSize, String printingSide,
                       int numberOfPages, int numberOfCopies, String bindingOption,
                       boolean laminationOption, boolean expressPrintingOption) {
@@ -116,7 +114,7 @@ public class printOrder {
     public double getBasePrintingCharge() { return basePrintingCharge; }
     public void setBasePrintingCharge(double basePrintingCharge) { 
     	if (basePrintingCharge<=0) {
-            throw new IllegalArgumentException("Pages must be larger than 0.");
+            throw new IllegalArgumentException("Base Printing Charge must be more than 0.");
         }
     	this.basePrintingCharge = basePrintingCharge; 
     	}
