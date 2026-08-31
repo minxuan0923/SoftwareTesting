@@ -7,7 +7,14 @@ public class generateInvoice {
         }
         customer cust = order.getCustomer();
 
-        if (cust == null) {
+        // Check if order status valid (not null and is 'Completed')
+        if (order.getOrderStatus() == null) {
+            throw new IllegalArgumentException("Invalid print order: order status cannot be null.");
+        } else if (order.getOrderStatus() != "Completed") {
+            throw new IllegalArgumentException("Invalid print order: order status must be 'Completed' to generate invoice.");
+        } 
+        // Check if customer details are valid (not null and all fields not null)
+        else if (cust == null) {
             throw new IllegalArgumentException("Invalid print order: customer cannot be null.");
         } else if (cust.getCustomerID() == null) {
             throw new IllegalArgumentException("Invalid print order: customer ID cannot be null.");
@@ -19,9 +26,9 @@ public class generateInvoice {
             throw new IllegalArgumentException("Invalid print order: customer phone cannot be null.");
         } else if (cust.getCustomerType() == null) {
             throw new IllegalArgumentException("Invalid print order: customer type cannot be null.");
-        } else if (order.getOrderStatus() == null) {
-            throw new IllegalArgumentException("Invalid print order: order status cannot be null.");
-        } else if (order.getPaperSize() == null) {
+        } 
+        // Check if order String variables are not null
+        else if (order.getPaperSize() == null) {
             throw new IllegalArgumentException("Invalid print order: paper size cannot be null.");
         } else if (order.getPrintType() == null) {
             throw new IllegalArgumentException("Invalid print order: print type cannot be null.");
