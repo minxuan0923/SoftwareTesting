@@ -13,7 +13,6 @@ public class customer {
     private String customerType; // e.g., "Student", "Corporate Customer", "Regular"
     private int previousOrders;
 
-    public customer() {}
 
     public customer(String customerID, String name, String email, String phone, String customerType, int previousOrders) {
     	 setCustomerID(customerID);
