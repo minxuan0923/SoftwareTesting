@@ -2,16 +2,26 @@ package application;
 
 public class generateInvoice {
     public String generate(printOrder order) {
-    	if(order==null) {
-    		throw new IllegalArgumentException("Invalid print order: order cannot be null.");
-    	}
+        if (order == null) {
+            throw new IllegalArgumentException("Invalid print order: order cannot be null.");
+        }
         customer cust = order.getCustomer();
 
-        if(cust == null) {
+        if (cust == null) {
             throw new IllegalArgumentException("Invalid print order: customer cannot be null.");
+        } else if (cust.getCustomerID() == null) {
+            throw new IllegalArgumentException("Invalid print order: customer ID cannot be null.");
+        } else if (cust.getName() == null) {
+            throw new IllegalArgumentException("Invalid print order: customer name cannot be null.");
+        } else if (cust.getEmail() == null) {
+            throw new IllegalArgumentException("Invalid print order: customer email cannot be null.");
+        } else if (cust.getPhone() == null) {
+            throw new IllegalArgumentException("Invalid print order: customer phone cannot be null.");
+        } else if (cust.getCustomerType() == null) {
+            throw new IllegalArgumentException("Invalid print order: customer type cannot be null.");
         } else if (order.getOrderStatus() == null) {
             throw new IllegalArgumentException("Invalid print order: order status cannot be null.");
-        } else if (order.getPaperSize() == null ) {
+        } else if (order.getPaperSize() == null) {
             throw new IllegalArgumentException("Invalid print order: paper size cannot be null.");
         } else if (order.getPrintType() == null) {
             throw new IllegalArgumentException("Invalid print order: print type cannot be null.");
